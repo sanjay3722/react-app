@@ -19,3 +19,21 @@
 - HTTPs
 - Tree Shaking - Remove unused code
 - Different build for Dev and Prod
+
+# Food App
+
+/\*\*
+
+- Header
+- - Logo
+- - Nav Items
+- Body
+- - Search
+- - ResturentContainer
+-      - ResturentCard
+- Footer
+- - Copyrights
+- - Links
+- - Address
+- - Contact
+    \*/
