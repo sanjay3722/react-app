@@ -22,8 +22,6 @@
 
 # Food App
 
-/\*\*
-
 - Header
 - - Logo
 - - Nav Items
@@ -36,4 +34,13 @@
 - - Links
 - - Address
 - - Contact
-    \*/
+
+# Two types of import/export
+
+-Default Export
+export default Component;
+import component from "path";
+
+-Named Export
+export const Component;
+import {component} from "path";
