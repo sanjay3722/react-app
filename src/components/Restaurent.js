@@ -1,13 +1,15 @@
 const RestaurentCard = (props) => {
   const { resData } = props;
-  const { resImage, resName, cuisine, rating, eta } = resData;
+  const { image, title, price, rating, category } = resData;
   return (
     <div className="res-card">
-      <img className="res-logo" src={resImage} alt="food kfc" />
-      <h3>{resName}</h3>
-      <p>{cuisine}</p>
-      <p>{rating}</p>
-      <p>{eta}</p>
+      <img className="res-logo" src={image} alt="title" />
+      <div className="res-body">
+        <h3>{title}</h3>
+        <p>{category}</p>
+        <p>{rating?.rate} ratings</p>
+        <p>$ {price}</p>
+      </div>
     </div>
   );
 };

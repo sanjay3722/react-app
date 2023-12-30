@@ -37,10 +37,10 @@
 
 # Two types of import/export
 
--Default Export
-export default Component;
-import component from "path";
+- Default Export
+  export default Component;
+  import component from "path";
 
--Named Export
-export const Component;
-import {component} from "path";
+- Named Export
+  export const Component;
+  import {component} from "path";
