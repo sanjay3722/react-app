@@ -1,4 +1,5 @@
 import RestaurentCard from "./Restaurent";
+import { Link } from "react-router-dom";
 import resObject from "./../utils/mokeData";
 import Shimmer from "./Shimmer";
 
@@ -74,7 +75,9 @@ const Body = () => {
 
       <div className="rest-container">
         {filteredRestaurent.map((resData) => (
-          <RestaurentCard key={resData.id} resData={resData} />
+          <Link to={"/restarent/" + resData?.id} key={resData.id}>
+            <RestaurentCard resData={resData} />
+          </Link>
         ))}
       </div>
     </div>
