@@ -44,3 +44,12 @@
 - Named Export
   export const Component;
   import {component} from "path";
+
+# API
+
+- https://fakestoreapi.com/docs
+
+# Routing
+
+- Client Side Routing
+- Server Side Routing

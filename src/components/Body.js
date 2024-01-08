@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 const Body = () => {
   // Local State Variable
   const [listOfRestaurent, setListOfRestaurent] = useState([]);
+  const [filteredRestaurent, setFilteredRestaurent] = useState([]);
+
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -16,6 +19,7 @@ const Body = () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const json = await data.json();
     setListOfRestaurent(json);
+    setFilteredRestaurent(json);
   };
 
   // Conditional Rendering
@@ -28,7 +32,30 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="topBar">
-        <div className="search">Search</div>
+        {/* Search */}
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+            className="search-box"
+          />
+          <button
+            onClick={() => {
+              const filteredRestaurent = listOfRestaurent.filter((res) =>
+                res.title.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurent(filteredRestaurent);
+            }}
+          >
+            Search
+          </button>
+        </div>
+
+        {/* Filter */}
         <div className="filter">
           <button
             className="filter-btn"
@@ -46,7 +73,7 @@ const Body = () => {
       </div>
 
       <div className="rest-container">
-        {listOfRestaurent.map((resData) => (
+        {filteredRestaurent.map((resData) => (
           <RestaurentCard key={resData.id} resData={resData} />
         ))}
       </div>
