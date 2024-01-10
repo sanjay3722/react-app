@@ -23,11 +23,6 @@ const Body = () => {
     setFilteredRestaurent(json);
   };
 
-  // Conditional Rendering
-  // if (listOfRestaurent.length === 0) {
-  //   return <Shimmer />;
-  // }
-
   return listOfRestaurent.length === 0 ? (
     <Shimmer />
   ) : (

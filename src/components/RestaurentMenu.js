@@ -1,29 +1,16 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import useRestaurentMenu from "../utils/useRestaurentMenu";
 
 const RestaurentMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
-
   const { resId } = useParams();
-  console.log(resId);
+  const restaurentMenu = useRestaurentMenu(resId);
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(`https://fakestoreapi.com/products/${resId}`);
-    const json = await data.json();
-    setResInfo(json);
-    console.log(json);
-  };
-
-  if (resInfo === null) {
+  if (restaurentMenu === null) {
     return <Shimmer />;
   }
 
-  const { title, image, price, description, category, rating } = resInfo;
+  const { title, image, price, description, category, rating } = restaurentMenu;
 
   return (
     <div className="detailPage">
