@@ -34,9 +34,9 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="topBar">
+      <div className="flex p-3 justify-between">
         {/* Search */}
-        <div className="search">
+        <div className="flex">
           <input
             type="text"
             placeholder="Search"
@@ -44,7 +44,7 @@ const Body = () => {
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
-            className="search-box"
+            className="border-1 border px-4 py-2"
           />
           <button
             onClick={() => {
@@ -53,6 +53,7 @@ const Body = () => {
               );
               setFilteredRestaurent(filteredRestaurent);
             }}
+            className=" px-4 py-2 bg-[green] text-white"
           >
             Search
           </button>
@@ -61,7 +62,7 @@ const Body = () => {
         {/* Filter */}
         <div className="filter">
           <button
-            className="filter-btn"
+            className=" px-4 py-2 bg-[green] text-white"
             type="button"
             onClick={() => {
               const filteredList = listOfRestaurent.filter(
@@ -75,7 +76,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="rest-container">
+      <div className="flex flex-wrap">
         {filteredRestaurent.map((resData) => (
           <Link to={"/restarent/" + resData?.id} key={resData.id}>
             <RestaurentCard resData={resData} />
