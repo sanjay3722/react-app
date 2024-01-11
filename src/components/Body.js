@@ -4,6 +4,7 @@ import resObject from "./../utils/mokeData";
 import Shimmer from "./Shimmer";
 
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // Local State Variable
@@ -22,6 +23,12 @@ const Body = () => {
     setListOfRestaurent(json);
     setFilteredRestaurent(json);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return <h>Oops look like your internet is not working!!</h>;
+  }
 
   return listOfRestaurent.length === 0 ? (
     <Shimmer />
