@@ -1,6 +1,5 @@
-import RestaurentCard from "./Restaurent";
+import RestaurentCard, { withPromotedLael } from "./Restaurent";
 import { Link } from "react-router-dom";
-import resObject from "./../utils/mokeData";
 import Shimmer from "./Shimmer";
 
 import { useEffect, useState } from "react";
@@ -12,6 +11,8 @@ const Body = () => {
   const [filteredRestaurent, setFilteredRestaurent] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const RestaurentCardPromoted = withPromotedLael(RestaurentCard);
 
   useEffect(() => {
     fetchData();
@@ -79,7 +80,11 @@ const Body = () => {
       <div className="flex flex-wrap">
         {filteredRestaurent.map((resData) => (
           <Link to={"/restarent/" + resData?.id} key={resData.id}>
-            <RestaurentCard resData={resData} />
+            {resData.rating.rate > 4 ? (
+              <RestaurentCardPromoted resData={resData} />
+            ) : (
+              <RestaurentCard resData={resData} />
+            )}
           </Link>
         ))}
       </div>

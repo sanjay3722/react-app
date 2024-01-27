@@ -14,4 +14,19 @@ const RestaurentCard = (props) => {
   );
 };
 
+// Higher Order Component
+
+export const withPromotedLael = (RestaurentCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white px-2 rounded-md">
+          Promoted
+        </label>
+        <RestaurentCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurentCard;
