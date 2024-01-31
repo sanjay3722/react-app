@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useRestaurentMenu from "../utils/useRestaurentMenu";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
 
 const RestaurentMenu = () => {
   const { resId } = useParams();
@@ -11,6 +13,11 @@ const RestaurentMenu = () => {
   }
 
   const { title, image, price, description, category, rating } = restaurentMenu;
+
+  const dispatch = useDispatch();
+  const handelAddItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return (
     <div className="detailPage flex p-5 w-[1200px] mx-auto">
@@ -26,6 +33,13 @@ const RestaurentMenu = () => {
         <p className="text-green-600">Price: ${price}</p>
         <p>Category: {category}</p>
         <p>Description: {description}</p>
+
+        <button
+          className="bg-black p-2 mt-5 shadow-lg text-white"
+          onClick={() => handelAddItem(restaurentMenu)}
+        >
+          Add to cart+
+        </button>
       </div>
     </div>
   );

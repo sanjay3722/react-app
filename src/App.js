@@ -11,6 +11,7 @@ import RestaurentMenu from "./components/RestaurentMenu";
 import UserContext from "./context/userContext";
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -57,6 +58,10 @@ const appRoute = createBrowserRouter([
       {
         path: "/restarent/:resId",
         element: <RestaurentMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/grocery",
