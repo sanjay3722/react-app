@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import UserContext from "../context/userContext";
+
 const RestaurentCard = (props) => {
   const { resData } = props;
   const { image, title, price, rating, category } = resData;
+  const data = useContext(UserContext);
   return (
     <div className="p-3 m-3 bg-gray-50 w-[200px] shadow-md">
       <img className="object-contain h-32 w-64" src={image} alt="title" />
@@ -9,6 +13,7 @@ const RestaurentCard = (props) => {
         <p className="text-sm">{category}</p>
         <p>{rating?.rate} ratings</p>
         <p>Price $ {price}</p>
+        <p>{data.loggedInUser}</p>
       </div>
     </div>
   );

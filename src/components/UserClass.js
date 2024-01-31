@@ -28,8 +28,8 @@ class UserClass extends React.Component {
 
     const { name, location, avatar_url } = this.state.userInfo;
     return (
-      <div className="user-card">
-        <button
+      <div className="user-card flex">
+        {/* <button
           onClick={() => {
             this.setState({
               count: this.state.count + 1,
@@ -37,13 +37,17 @@ class UserClass extends React.Component {
           }}
         >
           Update Count
-        </button>
+        </button> */}
         {/* <h2>Count: {count}</h2>
         <h2>Count2: {count2}</h2> */}
-        <img src={avatar_url} alt="img" />
-        <h2>Name: {name}</h2>
-        <h3>Location: {location}</h3>
-        <h3>Contact: kumarsanjay3722@gmail.com</h3>
+        <div className="w-[200px] mr-5">
+          <img src={avatar_url} alt="img" className="w-100" />
+        </div>
+        <div>
+          <h2>Name: {name}</h2>
+          <h3>Location: {location}</h3>
+          <h3>Contact: kumarsanjay3722@gmail.com</h3>
+        </div>
       </div>
     );
   }
