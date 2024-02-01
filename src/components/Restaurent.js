@@ -6,7 +6,10 @@ const RestaurentCard = (props) => {
   const data = useContext(UserContext);
 
   return (
-    <div className="p-3 m-3 bg-gray-50 w-[200px] shadow-md">
+    <div
+      data-testid="resCard"
+      className="p-3 m-3 bg-gray-50 w-[200px] shadow-md"
+    >
       <img className="object-contain h-32 w-64" src={image} alt="title" />
       <div className="flex flex-col">
         <h3 className="text-[18px]">{title}</h3>

@@ -40,6 +40,7 @@ const Body = () => {
         <div className="flex">
           <input
             type="text"
+            data-testid="searchInput"
             placeholder="Search"
             value={searchText}
             onChange={(e) => {
